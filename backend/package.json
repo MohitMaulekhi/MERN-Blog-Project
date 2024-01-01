@@ -1,0 +1,19 @@
+{
+  "name": "mern-blog-project",
+  "version": "1.0.0",
+  "description": "This is my First mern project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohitMaulekhi/MERN-Blog-Project.git"
+  },
+  "author": "Mohit Maulekhi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MohitMaulekhi/MERN-Blog-Project/issues"
+  },
+  "homepage": "https://github.com/MohitMaulekhi/MERN-Blog-Project#readme"
+}
