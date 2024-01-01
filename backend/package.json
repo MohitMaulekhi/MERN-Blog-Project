@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "This is my First mern project",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon run src/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/MohitMaulekhi/MERN-Blog-Project/issues"
   },
-  "homepage": "https://github.com/MohitMaulekhi/MERN-Blog-Project#readme"
+  "homepage": "https://github.com/MohitMaulekhi/MERN-Blog-Project#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "prettier": "^3.1.1"
+  }
 }
