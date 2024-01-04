@@ -25,8 +25,7 @@ const userSchema = new Schema(
             trim: true,
         },
         avatar:{
-            type: String,
-            required: true,
+            type: String
         },
         blogs:[
             {
