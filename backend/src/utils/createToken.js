@@ -1,5 +1,5 @@
 import { ApiError } from "./ApiError.js"
-
+import { User } from "../models/user.model.js";
 const generateAcessAndRefreshToken = async(userID)=>{
     try {
         const user = await User.findById(userID);
@@ -8,7 +8,6 @@ const generateAcessAndRefreshToken = async(userID)=>{
 
         user.refreshToken = refreshToken
         await user.save({validateBeforeSave:false})
-
         return {accessToken,refreshToken}
 
     } catch (error) {
