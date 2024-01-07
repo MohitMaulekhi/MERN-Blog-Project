@@ -1,1 +1,1 @@
-export const DB_NAME="Best_Blog"
+export const DB_NAME = "Best_Blog"

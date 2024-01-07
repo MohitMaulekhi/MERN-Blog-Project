@@ -2,6 +2,7 @@ import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"
 
+
 const app = express();
 
 app.use(cors({
@@ -11,22 +12,25 @@ app.use(cors({
 
 // Configuration
 app.use(express.json({  //limiting json data
-    limit:"256kb"
+    limit: "256kb"
 }))
 app.use(express.urlencoded({   // making enconding standard and limiting it
-    extended:true,
+    extended: true,
     limit: "256kb"
 }))
 app.use(express.static("public")) // serving public folder as static for app
 app.use(cookieParser()) // for using secure cookies
 
 
-
 //routes
 
 import userRouter from "./routes/user.routes.js"
+import userUpdateRouter from "./routes/userUpdate.routes.js"
+import userDeleteRouter from "./routes/userDelete.routes.js"
 
 //routes declaration
-app.use("/api/v1/user",userRouter)
+app.use("/api/v1/user", userRouter)
+app.use("/api/v1/user/update", userUpdateRouter)
+app.use("/api/v1/user/delete", userDeleteRouter)
 
-export {app};
+export { app };

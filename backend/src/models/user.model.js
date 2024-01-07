@@ -26,6 +26,9 @@ const userSchema = new Schema(
         avatar:{
             type: String
         },
+        avatarName:{
+            type: String
+        },
         blogs:[
             {
                 type:Schema.Types.ObjectId,
@@ -47,9 +50,14 @@ userSchema.pre("save",async function(next){
     this.password = await bcrypt.hash(this.password,2)
     next();
 })
+
+
+
+
 userSchema.methods.isPasswordCorrect = async function(password){
     return await bcrypt.compare(password,this.password)
 }
+
 userSchema.methods.generateAcessToken = function(){
     return jwt.sign({
         _id: this._id,
