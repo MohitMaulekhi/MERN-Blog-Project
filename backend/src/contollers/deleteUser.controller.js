@@ -15,6 +15,11 @@ const deleteUser = asyncHandler(async (req, res) => {
     } catch (error) {
         new ApiError(500,"Unable to delete from database")
     }
+    
+    const {avatarName}  = await User.findById(req.user._id)
+    await deleteOnCloudinary(avatarName)
+
+
     const options = {
         httpOnly: true,
         secure: true
