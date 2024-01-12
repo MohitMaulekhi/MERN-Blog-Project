@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import {Provider} from "react-redux"
 import store from "./store/store.js"
-import {RouterProvider, createBrowserRouter, Route,createRoutesFromElements} from "react-router-dom" 
+import {RouterProvider, createBrowserRouter, Route,createRoutesFromElements,redirect} from "react-router-dom" 
 import App from "./App.jsx"
 import {RegisterPage,LoginPage} from "./pages/pages.index.jsx"
 
+redirect("/Register")
 const router = createBrowserRouter(
   createRoutesFromElements( 
     <Route path='/' element={<App/>} >
@@ -17,7 +18,7 @@ const router = createBrowserRouter(
 )
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <React.StrictMode >
     <Provider store = {store}>
       <RouterProvider router = {router}/>
     </Provider>

@@ -1,17 +1,18 @@
 /* eslint-disable react/prop-types */
 import { NavLink } from "react-router-dom"
-// " bg-mainBlue"
-// ` font-semibold text-center h-full  ${isActive ? "text-black" : "text-white bg-mainBlue"
+
 function AuthButton(props) {
   return (
-
+    <div className="m-0 p-0 half">
     <NavLink to={`/${props.type}`}>
-      {({ isActive }) => (
-        <button className={`h-10 max-w-26 m-4 p-8 border-stone-950  flex justify-center items-center  text-xl  ${isActive?"text-black bg-slate-400 rounded-l-[30%]":`text-white bg-mainBlue rounded-${props.borderCurve}-[30%]`}`}>
+      {({ isActive}) => {
+        return <button
+          className={`w-[12vw] h-[10vh] text-[2vw] m-0 p-0 font-semibold ${isActive?`bg-white scale-y-[1.13] rounded-l-full`:`bg-mainBlue text-white rounded-${props.borderCurve}-3xl`}` }>
           {props.type}
-        </button>
-      )}
-    </NavLink>
+        </button>}
+      }
+    </NavLink> 
+    </div>
 
   )
 }

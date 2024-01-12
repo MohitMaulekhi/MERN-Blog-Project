@@ -1,24 +1,25 @@
 import { useEffect, useState } from "react"
-import { Header,Footer } from "./componenets/index.js"
+import {Footer } from "./componenets/index.js"
 import {useDispatch} from 'react-redux'
 import axios from "axios"
 import {login,logOut} from "./store/authSlice.js"
-import {Outlet} from "react-router-dom"
+import {Outlet,useNavigate} from "react-router-dom"
 import {AuthSidebar} from "./componenets/index.js"
-
 
 function App() {
   const [loading,setLoading] = useState(true)
   const dispatch = useDispatch()
-
+  const navigate = useNavigate()
   useEffect(()=>{
       axios.get('/api/v1/user/current')
       .then((userData)=>{
         if(userData){
           dispatch(login(({userData})))
+          return null
         }
         else{
           dispatch(logOut())
+          navigate("/Login")
         }
       })
       .finally(setLoading(false))
@@ -27,10 +28,12 @@ function App() {
   
   return !loading?(
     <>
+    <div className="flex">
       <AuthSidebar/>
       <Outlet/>
-      <Footer/>
-    </>
+      
+    </div>
+    <Footer/></>
   ):null
 }
 
