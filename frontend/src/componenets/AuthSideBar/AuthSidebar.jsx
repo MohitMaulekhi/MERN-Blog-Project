@@ -3,7 +3,7 @@ import { useState } from "react"
 
 
 function AuthSidebar() {
-  const [active1,setActive1] = useState(false)
+  const [active1,setActive1] = useState(true)
   const [active2,setActive2] = useState(false)
   return (
     <div className="h-[95vh] w-[15vw] m-0 p-0 ">

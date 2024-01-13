@@ -5,3 +5,10 @@
 .half{
     background: linear-gradient(90deg, #2512A6 50%, white 50%);
 }
+
+input[type=text] {
+    /* box-sizing: border-box; */
+    /* transition: 0.1s; */
+    /* outline: none; */
+  }
+  

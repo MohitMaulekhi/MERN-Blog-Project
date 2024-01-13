@@ -7,7 +7,7 @@ function AuthButton(props) {
     <NavLink to={`/${props.type}`}>
       {({ isActive}) => {
         return <button
-          className={`w-[12vw] h-[10vh] text-[2vw] m-0 p-0 font-semibold ${isActive?`bg-white scale-y-[1.13] rounded-l-full`:`bg-mainBlue text-white rounded-${props.borderCurve}-3xl`}` }>
+          className={`w-[12vw] h-[10vh] text-[2vw] m-0 p-0 font-semibold ${isActive?`bg-white scale-y-[1.09] rounded-l-full`:`bg-mainBlue text-white rounded-${props.borderCurve}-3xl`}` }>
           {props.type}
         </button>}
       }
