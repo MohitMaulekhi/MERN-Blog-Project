@@ -64,7 +64,7 @@ const registerUser = asyncHandler(async (req, res) => {
     )
     // console.log("stage 5")
     if (!createdUser) {
-        throw new ApiError("500", "Error while registering User Try again Later")
+        throw new ApiError("500", "Error while registering User. Try again Later")
     }
     // console.log("stage 6")
     return res.status(201).json(
@@ -108,7 +108,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
     const boolpass = await user.isPasswordCorrect(password)
     if (!boolpass) {
-        throw new ApiError(404, "Invalid credentials")
+        throw new ApiError(405, "Invalid credentials")
     }
     // console.log("stage 5 completed")
 

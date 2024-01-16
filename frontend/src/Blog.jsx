@@ -1,15 +1,19 @@
-import { useEffect, useState } from "react"
-import {useDispatch} from 'react-redux'
+import {Footer } from "./componenets/index.js"
 import axios from "axios"
-import {login,logOut} from "./store/authSlice.js"
 import {Outlet,useNavigate} from "react-router-dom"
-import {AuthSidebar} from "./componenets/index.js"
-import {Footer} from "../src/componenets/index.js"
+import MainPage from "./pages/MainPage.jsx"
+import { useEffect,} from "react"
+import {useDispatch,useSelector } from 'react-redux'
+import {login,logOut} from "./store/authSlice.js"
 
-function App() {
-  const [loading,setLoading] = useState(true)
+
+function Blog() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const counter = (useSelector(state => state.authSlice.userData))
+  if(counter == null){
+    navigate("/Login")
+  }
   useEffect(()=>{
       axios.get('/api/v1/user/current')
       .then((userData)=>{
@@ -27,22 +31,19 @@ function App() {
       .catch(()=>{
         navigate("/Login")
       })
-      .finally(setLoading(false))
+      .finally()
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
   
-  return !loading?(
+  return (
     <>
-    <div className="flex-col min-h-screen min-w-full">
-    <div className="flex">
-      <AuthSidebar/>
+    <div  className="flex flex-col min-h-screen">
       <Outlet/>
-      
+      <MainPage/>
+      <Footer/>
     </div>
-    <Footer/>
-    </div>
-    </>
-  ):null
+    
+    </>)
 }
 
-export default App
+export default Blog
