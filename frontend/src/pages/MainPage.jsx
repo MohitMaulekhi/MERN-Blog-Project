@@ -1,10 +1,36 @@
-
-import { useSelector } from 'react-redux'
+import { useEffect,} from "react"
+import {useDispatch,useSelector } from 'react-redux'
+import {login,logOut} from "../store/authSlice.js"
 import { FunctionBTN } from '../componenets/index.js'
+import axios from "axios"
+import {useNavigate} from "react-router-dom"
+
 function MainPage() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  useEffect(()=>{
+      axios.get('/api/v1/user/current')
+      .then((userData)=>{
+        if(userData){
+
+          dispatch(login({userData:userData.data}))
+          navigate("/user")
+          return null
+        }
+        else{
+          dispatch(logOut())
+          navigate("/Login")
+        }
+      })
+      .catch(()=>{
+        navigate("/Login")
+      })
+      .finally()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
 
   const counter = (useSelector(state => state.authSlice.userData))
-  const nameArray = counter.data.fullName.split(" ")
+  const nameArray = counter?.data.fullName.split(" ")
 
   return (
     <div className="min-h-[96.5vh] min-w-full">

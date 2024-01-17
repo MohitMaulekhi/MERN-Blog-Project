@@ -5,17 +5,14 @@ import { faEnvelope,faLock } from "@fortawesome/free-solid-svg-icons"
 import { useState } from "react"
 import axios from "axios"
 import { ToastContainer, toast } from 'react-toastify'
-import {useNavigate} from "react-router-dom"
-import {login,logOut} from "../store/authSlice.js"
-import {useDispatch} from 'react-redux'
 import LoadingBar from 'react-top-loading-bar'
+import {useNavigate} from "react-router-dom"
 
 function LoginPage() {
-  const navigate = useNavigate()
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
-  const dispatch = useDispatch()
   const [progress, setProgress] = useState(0)
+  const navigate = useNavigate()
   function ValidateEmail() {
     const mailformat = /^[a-z_\-0-9\.\*\#\$\!\~\%\^\&\-\+\?\|]+@+[a-z\-0-9]+(.com)$/i;
     if (email.match(mailformat)) {
@@ -39,23 +36,7 @@ function LoginPage() {
       .then((response) => {
         toast.success(response.data.message)
         setProgress(progress+20)
-        axios.get('/api/v1/user/current')
-        .then((userData)=>{
-          if(userData){
-            setProgress(progress+20)
-            dispatch(login({userData:userData.data}))
-            console.log("yes")
-            navigate("/user")
-            return null
-          }
-          else{
-            dispatch(logOut())
-            navigate("/Login")
-          }
-        })
-        .catch(()=>{
-          navigate("/Login")
-        }).finally(setProgress(100))
+        navigate("/user")
         
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
