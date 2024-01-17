@@ -7,7 +7,7 @@ import App from "./App.jsx"
 import {RegisterPage,LoginPage} from "./pages/pages.index.jsx"
 import 'react-toastify/dist/ReactToastify.css';
 import Blog from './Blog.jsx'
-
+import { UpdateAvatar,ChangePassword,DeleteAccount,UpdateDetails } from './componenets/index.js'
 
 redirect("/Register")
 const router = createBrowserRouter(
@@ -18,6 +18,11 @@ const router = createBrowserRouter(
         <Route path='/Login' element = {<LoginPage/>}  />
     </Route>
     <Route path='/user' element={<Blog/>} >
+      <Route path='/user/updateAvatar' element={<UpdateAvatar/>}  />
+      <Route path='/user/changePassword' element={<ChangePassword/>}  />
+      <Route path='/user/deleteAccount' element={<DeleteAccount/>}  />
+      <Route path='/user/updateDetails' element={<UpdateDetails/>}  />
+      
     </Route></>
     )
 )

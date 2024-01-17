@@ -97,10 +97,10 @@ function RegisterPage() {
 
 
         <div className="m-[3%] w-[15%]" onClick={handleClick} >
-          <button><div className=' h-[15vh] w-[15vh] rounded-full bg-cover' style={image?{backgroundImage:`url(${URL.createObjectURL(image)})`}:{backgroundImage:`url(../src/assests/Default_profile.jpg)`}}>
+          <button><div className=' h-[15vh] w-[15vh] rounded-full bg-cover hover:opacity-50' style={image?{backgroundImage:`url(${URL.createObjectURL(image)})`}:{backgroundImage:`url(../src/assests/Default_profile.jpg)`}}>
 
           </div>
-            <input type="file" ref={inputRef} onChange={handleChange} style={{ display: "none" }} accept="image/png, image/jpeg, image/jpg" /></button>
+            <input type="file" ref={inputRef} onChange={handleChange} style={{ display: "none" }} accept="image/png, image/jpeg, image/jpg image/webp" /></button>
         </div>
 
 

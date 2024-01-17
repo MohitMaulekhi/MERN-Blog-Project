@@ -33,14 +33,12 @@ function App() {
   
   return !loading?(
     <>
-    <div className="flex-col min-h-screen min-w-full">
     <div className="flex">
       <AuthSidebar/>
       <Outlet/>
       
     </div>
     <Footer/>
-    </div>
     </>
   ):null
 }
