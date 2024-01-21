@@ -54,6 +54,9 @@ function LoginPage() {
           else if(error.response.status == 405){
             toast.error("Invalid Password")
           }
+          else{
+            toast.error("Invalid User")
+          }
         }
         else{
           toast.error("Something went Wrong")
@@ -74,8 +77,8 @@ function LoginPage() {
         <div className="h-[15vh] w-[15vw]"><img src="..\src\assests\Logo.svg" alt="none" /></div>
 
         <form className="my-[10vh]">
-          <div className="my-[10%] "><span className="mx-3"><FontAwesomeIcon icon={faEnvelope} /></span><span className="border-b-[0.5vh] border-black"><input className="focus:outline-none" value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} type="email" /></span></div>
-          <div className="my-[5%] "><span className="mx-3"><FontAwesomeIcon icon={faLock} /></span><span className="border-b-[0.5vh] border-black"><input className="focus:outline-none" value={password} placeholder="Password" onChange={e => setPassword(e.target.value)} type="password" autoComplete="on" /></span></div>
+          <div className="my-[10%] "><span className="mx-3"><FontAwesomeIcon icon={faEnvelope} /></span><span className="border-b-4 border-black"><input className="focus:outline-none" value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} type="email" /></span></div>
+          <div className="my-[5%] "><span className="mx-3"><FontAwesomeIcon icon={faLock} /></span><span className="border-b-4 border-black"><input className="focus:outline-none" value={password} placeholder="Password" onChange={e => setPassword(e.target.value)} type="password" autoComplete="on" /></span></div>
         </form>
         <div className="m-[5%] cursor-pointer" onClick={LoginUser} ><Button type="Login" /></div>
       </div>

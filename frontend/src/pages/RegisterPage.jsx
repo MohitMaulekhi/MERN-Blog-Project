@@ -18,7 +18,6 @@ function RegisterPage() {
     inputRef.current.click();
   }
   const handleChange = (event) => {
-    console.log(event.target.files[0], "hello")
     setImage(event.target.files[0])
   }
 
@@ -106,10 +105,10 @@ function RegisterPage() {
 
 
         <form>
-          <div className="my-[2.5%]"><span className="mx-3"><FontAwesomeIcon icon={faAt} /></span><span className="border-b-[0.5vh] border-black"><input className="focus:outline-none" value={fullName} placeholder="FullName" onChange={e => setfullName(e.target.value)} type="text" /></span></div>
-          <div className="my-[2.5%]"><span className="mx-3"><FontAwesomeIcon icon={faUser} /></span><span className="border-b-[0.5vh] border-black"><input className="focus:outline-none" value={userName} placeholder="UserName" onChange={e => setUserName(e.target.value)} type="text" /></span></div>
-          <div className="my-[2.5%]"><span className="mx-3"><FontAwesomeIcon icon={faEnvelope} /></span><span className="border-b-[0.5vh] border-black"><input className="focus:outline-none" value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} type="email" /></span></div>
-          <div className="my-[2.5%]"><span className="mx-3"><FontAwesomeIcon icon={faLock} /></span><span className="border-b-[0.5vh] border-black"><input className="focus:outline-none" value={password} placeholder="Password" onChange={e => setPassword(e.target.value)} type="password" autoComplete="on" /></span></div>
+          <div className="my-[2.5%]"><span className="mx-3"><FontAwesomeIcon icon={faUser} /></span><span className="border-b-4 border-black"><input className="focus:outline-none" value={fullName} placeholder="FullName" onChange={e => setfullName(e.target.value)} type="text" /></span></div>
+          <div className="my-[2.5%]"><span className="mx-3"><FontAwesomeIcon icon={faAt} /></span><span className="border-b-4 border-black"><input className="focus:outline-none" value={userName} placeholder="UserName" onChange={e => setUserName(e.target.value)} type="text" /></span></div>
+          <div className="my-[2.5%]"><span className="mx-3"><FontAwesomeIcon icon={faEnvelope} /></span><span className="border-b-4 border-black"><input className="focus:outline-none" value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} type="email" /></span></div>
+          <div className="my-[2.5%]"><span className="mx-3"><FontAwesomeIcon icon={faLock} /></span><span className="border-b-4 border-black"><input className="focus:outline-none" value={password} placeholder="Password" onChange={e => setPassword(e.target.value)} type="password" autoComplete="on" /></span></div>
         </form>
         <div className="m-[2%] cursor-pointer" onClick={registerUser} ><Button type="Register" /></div>
         <ToastContainer/>

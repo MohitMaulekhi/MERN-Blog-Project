@@ -41,7 +41,7 @@ function MainPage() {
   const handleLogOut = ()=>{
     axios.get('/api/v1/user/logout')
     .then(()=>{
-      toast.success("User Logged Out success fully")
+      toast.success("User logged out success fully")
       navigate("/login")
     })
     .catch(()=>{
@@ -49,7 +49,7 @@ function MainPage() {
     })
   }
 
-
+  
   useEffect(() => {
     axios.get('/api/v1/user/current')
       .then((userData) => {

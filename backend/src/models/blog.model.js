@@ -2,16 +2,20 @@ import mongoose,{Schema} from "mongoose"
 
 const blogSchema = new Schema(
     {
-        heading:{
+        title:{
             type: String,
             required: true,
             index:true
         },
-        img:{
+        blogImg:{
+            type:String
+        },
+        blogImgName:{
             type:String
         },
         content:{
-            type:String
+            type:String,
+            required:true
         }
     }
 ,{timestamps:true})

@@ -27,10 +27,13 @@ app.use(cookieParser()) // for using secure cookies
 import userRouter from "./routes/user.routes.js"
 import userUpdateRouter from "./routes/userUpdate.routes.js"
 import userDeleteRouter from "./routes/userDelete.routes.js"
+import blogRouter from "./routes/blog.routes.js"
 
 //routes declaration
 app.use("/api/v1/user", userRouter)
 app.use("/api/v1/user/update", userUpdateRouter)
 app.use("/api/v1/user/delete", userDeleteRouter)
+app.use("/api/v1/blog", blogRouter)
+
 
 export { app };
