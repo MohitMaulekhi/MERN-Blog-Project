@@ -8,7 +8,8 @@ import { ToastContainer, toast } from 'react-toastify'
 import LoadingBar from 'react-top-loading-bar'
 import axios from "axios"
 import {useDispatch} from "react-redux"
-import { login, logOut } from "../../store/authSlice.js"
+import getUser from "../../utils/get.js"
+
 
 function ChangePassword() {
   const [oldPassword, setOldPassword] = useState("")
@@ -32,19 +33,7 @@ function ChangePassword() {
       .patch('/api/v1/user/update/password', {oldPassword,newPassword:newPassword1})
       .then((response) => {
         toast.success(response.data.message)
-        axios.get('/api/v1/user/current')
-        .then((userData)=>{
-          if (userData) {
-      
-            dispatch(login({ userData: userData.data }))
-          }
-          else {
-            dispatch(logOut())
-            navigate("/Login")
-          }
-        })
-        .catch(() => {
-          navigate("/Login")})
+        getUser(dispatch,navigate)
         
       })
       .catch((error) => {

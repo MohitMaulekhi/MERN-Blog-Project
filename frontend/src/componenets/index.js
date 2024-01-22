@@ -1,4 +1,3 @@
-import Header from "./Header/Header";
 import Footer from "./Footer/Footer"
 import AuthButton from "./AuthSideBar/AuthButton";
 import AuthSidebar from "./AuthSideBar/AuthSidebar";
@@ -9,9 +8,7 @@ import ChangePassword from "./UserUpdation/ChangePassword";
 import UpdateDetails from "./UserUpdation/UpdateDetails";
 import DeleteAccount from "./UserUpdation/DeleteAccount";
 
-
 export{
-    Header,
     Footer,
     AuthButton,
     AuthSidebar,

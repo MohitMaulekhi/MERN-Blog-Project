@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import LoadingBar from 'react-top-loading-bar'
 import axios from "axios"
 import {useDispatch} from "react-redux"
-import { login, logOut } from "../../store/authSlice.js"
+import  getUser  from "../../utils/get.js"
 
 function UpdateDetails() {
   const [fullName, setfullName] = useState("")
@@ -40,19 +40,7 @@ function UpdateDetails() {
       .patch('/api/v1/user/update/details', {email,fullName})
       .then((response) => {
         toast.success(response.data.message)
-        axios.get('/api/v1/user/current')
-        .then((userData)=>{
-          if (userData) {
-      
-            dispatch(login({ userData: userData.data }))
-          }
-          else {
-            dispatch(logOut())
-            navigate("/Login")
-          }
-        })
-        .catch(() => {
-          navigate("/Login")})
+        getUser(dispatch,navigate)
         
       })
       .catch((error) => {
@@ -62,7 +50,7 @@ function UpdateDetails() {
           // The request was made and the server responded with a status code
           // that falls out of the range of 2xx
           if(error.response.status == 409){
-            toast.error("User with email exists")
+            toast.error("User with email already exists")
           }
           else if(error.response.status == 500){
             toast.error("Error while updating User")

@@ -5,7 +5,7 @@ import {FunctionBTN} from "../index.js"
 import { ToastContainer, toast } from 'react-toastify'
 import axios  from "axios";
 import LoadingBar from 'react-top-loading-bar'
-import { login, logOut } from "../../store/authSlice.js"
+import  getUser from "../../utils/get.js";
 
 
 export default function UpdateAvatar() {
@@ -37,22 +37,8 @@ export default function UpdateAvatar() {
       axios.patch("/api/v1/user/update/avatar",formData)
       .then(()=>{
         toast.done("Profile updated")
-        
-          axios.get('/api/v1/user/current')
-            .then((userData) => {
-              if (userData) {
-      
-                dispatch(login({ userData: userData.data }))
-                return null
-              }
-              else {
-                dispatch(logOut())
-                navigate("/Login")
-              }
-            })
-            .catch(() => {
-              navigate("/Login")})
-            .finally()
+        getUser(dispatch,navigate)
+          
           // eslint-disable-next-line react-hooks/exhaustive-deps
         
       })

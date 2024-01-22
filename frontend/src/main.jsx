@@ -4,7 +4,7 @@ import {Provider} from "react-redux"
 import store from "./store/store.js"
 import {RouterProvider, createBrowserRouter, Route,createRoutesFromElements,redirect} from "react-router-dom" 
 import App from "./App.jsx"
-import {RegisterPage,LoginPage} from "./pages/pages.index.jsx"
+import {RegisterPage,LoginPage,BlogCreate} from "./pages/pages.index.jsx"
 import 'react-toastify/dist/ReactToastify.css';
 import Blog from './Blog.jsx'
 import { UpdateAvatar,ChangePassword,DeleteAccount,UpdateDetails } from './componenets/index.js'
@@ -21,9 +21,11 @@ const router = createBrowserRouter(
       <Route path='/user/updateAvatar' element={<UpdateAvatar/>}  />
       <Route path='/user/changePassword' element={<ChangePassword/>}  />
       <Route path='/user/deleteAccount' element={<DeleteAccount/>}  />
-      <Route path='/user/updateDetails' element={<UpdateDetails/>}  />
-      
-    </Route></>
+      <Route path='/user/updateDetails' element={<UpdateDetails/>}  />  
+    </Route>
+    <Route path='/blogcreate' element={<BlogCreate/>}/>
+    
+    </>
     )
 )
 
