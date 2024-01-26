@@ -1,5 +1,6 @@
 import mongoose,{Schema} from "mongoose"
 
+// Blogs Schema for mongoDB
 const blogSchema = new Schema(
     {
         title:{

@@ -167,9 +167,31 @@ const deleteBlog = asyncHandler(async(req,res)=>{
     }
 })
 
+const getAllBlogs = asyncHandler(async(req,res)=>{
+    const user = await User.findById(req.user._id)
+    const blogArray = user.blogs
+
+
+    if (user) {
+        let blogsDataArray = []
+        for(let i = 0 ; i < blogArray.length ; i++){
+            blogsDataArray.push(await Blog.findById(blogArray[i]))
+        }
+        return res.status(201).json(
+            new ApiResponse(200, blogsDataArray, "Blogs fetched succesfully")
+        )
+
+    }
+    else{
+        throw new ApiError(404,"user Not found")
+    }
+})
+
+
 export{
     createBlog,
     getBlog,
     updateBlog,
-    deleteBlog
+    deleteBlog,
+    getAllBlogs
 }

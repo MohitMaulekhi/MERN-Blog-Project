@@ -1,5 +1,7 @@
 import { ApiError } from "./ApiError.js"
 import { User } from "../models/user.model.js";
+
+// This function will create access and refresh token using user's ID and save the refresh token in user's collection.
 const generateAcessAndRefreshToken = async(userID)=>{
     try {
         const user = await User.findById(userID);

@@ -11,10 +11,10 @@ app.use(cors({
 
 
 // Configuration
-app.use(express.json({  //limiting json data
+app.use(express.json({  //limiting json data to 256kb
     limit: "256kb"
 }))
-app.use(express.urlencoded({   // making enconding standard and limiting it
+app.use(express.urlencoded({   // making enconding standard and limiting it to 256kb
     extended: true,
     limit: "256kb"
 }))
@@ -23,7 +23,6 @@ app.use(cookieParser()) // for using secure cookies
 
 
 //routes
-
 import userRouter from "./routes/user.routes.js"
 import userUpdateRouter from "./routes/userUpdate.routes.js"
 import userDeleteRouter from "./routes/userDelete.routes.js"

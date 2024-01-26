@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom/client'
 import './index.css'
+import {Following, Global} from './componenets/index.js'
 import {Provider} from "react-redux"
 import store from "./store/store.js"
 import {RouterProvider, createBrowserRouter, Route,createRoutesFromElements,redirect} from "react-router-dom" 
@@ -22,6 +23,8 @@ const router = createBrowserRouter(
       <Route path='/user/changePassword' element={<ChangePassword/>}  />
       <Route path='/user/deleteAccount' element={<DeleteAccount/>}  />
       <Route path='/user/updateDetails' element={<UpdateDetails/>}  />  
+      <Route path='/user/Following' element={<Following/>}  />  
+      <Route path='/user/Global' element={<Global/>}  />  
     </Route>
     <Route path='/blogcreate' element={<BlogCreate/>}/>
     

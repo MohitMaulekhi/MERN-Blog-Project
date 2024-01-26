@@ -7,6 +7,11 @@ import UpdateAvatar from "./UserUpdation/UpdateAvatar";
 import ChangePassword from "./UserUpdation/ChangePassword";
 import UpdateDetails from "./UserUpdation/UpdateDetails";
 import DeleteAccount from "./UserUpdation/DeleteAccount";
+import MyBlogs from "./blogDisplay/MyBlogs"
+import Following from "./blogDisplay/Following"
+import Global from "./blogDisplay/Global"
+import UserBar from "./UserPage/UserBar";
+import UserBlogOption from "./UserPage/UserBlogOption";
 
 export{
     Footer,
@@ -17,6 +22,11 @@ export{
     UpdateAvatar,
     ChangePassword,
     DeleteAccount,
-    UpdateDetails
+    UpdateDetails,
+    Global,
+    Following,
+    MyBlogs,
+    UserBar,
+    UserBlogOption
 
 }

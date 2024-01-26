@@ -1,3 +1,5 @@
+// Below is a default response schema to send standardised Api response
+
 class ApiResponse {
     constructor(statusCode, data, message = "Success"){
         this.statusCode = statusCode

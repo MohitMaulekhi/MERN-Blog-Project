@@ -1,3 +1,6 @@
+// Below is a default error schema to send standardised errors
+
+
 class ApiError extends Error {
     constructor(
         statusCode,

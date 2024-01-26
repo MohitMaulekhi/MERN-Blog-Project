@@ -25,6 +25,11 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
     if (!fullName || !email) {
         throw new ApiError(400, "All fields are required")
     }
+    const existedUser = await User.findOne({email})
+
+    if (existedUser) {
+        throw new ApiError(409, "User with email or username already exists")
+    }
 
     const user = await User.findByIdAndUpdate(req.user?._id, {
         $set: {
