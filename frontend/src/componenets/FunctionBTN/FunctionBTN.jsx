@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 function FunctionBTN(props) {
   return (
-    <div className={`bg-${props.color} flex justify-center w-[95%] rounded-2xl border-black border-2 hover:opacity-90`}>
-    <button className={` text-${props.txtColor} lg:text-[1.75vh] text-[1.75vw] p-1 overflow-auto text-center rounded-2xl font-semibold `}>
+    <button className={` text-${props.txtColor} bg-${props.color}  w-[${props.width}] border-black border-2 hover:opacity-90 text-[1.5vw] md:text-[1.5vh] md:min-w-fit min-w-[14vw]  p-1 overflow-clip text-center rounded-2xl font-semibold `}>
         {props.type}
-    </button></div>
+    </button>
   )
 }
 

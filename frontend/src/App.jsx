@@ -15,14 +15,16 @@ function App() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
   
+
+
   return !loading?(
     <>
-    <div className="flex">
-      <AuthSidebar/>
-      <Outlet/>
-      
+    <div className="grid grid-cols-7 ">
+      <div className="col-span-2"><AuthSidebar/></div>
+      <div className="col-span-4"><Outlet/></div>
+      <div className="col-span-7"><Footer/></div>
     </div>
-    <Footer/>
+    
     </>
   ):null
 }

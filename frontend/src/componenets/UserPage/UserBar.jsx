@@ -19,18 +19,17 @@ function UserBar() {
       }
   return (
     <div><div className='flex'>
-    <div className='bg-mainBlue min-h-full scale-x-115 w-[15vw] h-[85.2vh] rounded-br-[15vh]'>
+    <div className='bg-mainBlue min-h-full md:w-[10vw] w-[15vw] scale-x-115 h-[85vh] rounded-br-[15vh]'>
       <div className='flex flex-col justify-center items-center'>
         <div className='h-[10vh]'></div>
-        <Link to={`/user/updateAvatar`}><div className='my-[1.5vh] w-[14vw] cursor-pointer'><FunctionBTN type="Update Avatar" color="white" txtColor="black" /></div></Link>
-        <Link to={`/user/updateDetails`}><div className='my-[1.5vh] w-[14vw] cursor-pointer'><FunctionBTN type="Update Details" color="white" txtColor="black" /></div></Link>
-        <Link to={`/user/changePassword`}><div className='my-[1.5vh] w-[14vw] cursor-pointer'><FunctionBTN type="Change Password" color="white" txtColor="black" /></div></Link>
-        <div className='h-[7.5vh]'></div>
-        <div className='my-[1.5vh] w-[14vw] cursor-pointer' onClick={handleLogOut}><FunctionBTN type=" Logout" color="black" txtColor="white" /></div>
-        <Link to={`/user/deleteAccount`}><div className='my-[1.5vh] w-[14vw] cursor-pointer' ><FunctionBTN type="Delete Account" color="black" txtColor="white" /></div></Link>
+        <Link className='my-[1vh]' to={`/user/updateAvatar`}><FunctionBTN type="Update Avatar" color="white" txtColor="black" width = "10vw" /></Link>
+        <Link className='my-[1vh]' to={`/user/updateDetails`}><FunctionBTN type="Update Details" color="white" txtColor="black" width = "10vw" /></Link>
+        <Link className='my-[1vh]' to={`/user/changePassword`}><FunctionBTN type="Change Password" color="white" txtColor="black" width = "10vw" /></Link>
+        <div className='mt-[15vh]'><FunctionBTN onClick = {handleLogOut} type=" Logout" color="black" txtColor="white" width = "10vw" /></div>
+        <Link className='my-[1vh]' to={`/user/deleteAccount`}><FunctionBTN type="Delete Account" color="black" txtColor="white" width = "10vw" /></Link>
       </div>
     </div>
-    <div className='bg-mainBlue'><div className='bg-white w-[7.5vw] h-[100%] rounded-tl-[50vh]'></div></div>
+    <div className='bg-mainBlue'><div className='bg-white w-[5vw] lg:w-[7.5vw] h-[100%] rounded-tl-[50vh]'></div></div>
   </div><ToastContainer/></div>
   )
 }

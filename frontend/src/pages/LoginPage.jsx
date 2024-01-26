@@ -66,21 +66,21 @@ function LoginPage() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center w-[85vw] h-[90vh]">
+    <div className="flex flex-col justify-center items-center h-[90vh]">
       <LoadingBar
         color='#B19CD9'
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
       <ToastContainer/>
-      <div className=" h-[55vh] w-[65vw] flex flex-col justify-center items-center">
-        <div className="h-[15vh] w-[15vw]"><img src="..\src\assests\Logo.svg" alt="none" /></div>
+      <div className=" h-[40vh] flex flex-col justify-center items-center">
+        <div className="h-[25vh] w-[25vh] max-w-[30vw]"><img src="..\src\assests\Logo.svg" alt="none" /></div>
 
-        <form className="my-[10vh]">
-          <div className="my-[10%] "><span className="mx-3"><FontAwesomeIcon icon={faEnvelope} /></span><span className="border-b-4 border-black"><input className="focus:outline-none" value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} type="email" /></span></div>
-          <div className="my-[5%] "><span className="mx-3"><FontAwesomeIcon icon={faLock} /></span><span className="border-b-4 border-black"><input className="focus:outline-none" value={password} placeholder="Password" onChange={e => setPassword(e.target.value)} type="password" autoComplete="on" /></span></div>
+        <form className="my-[5vh]">
+          <div className="my-[4vh] "><span className="mx-3"><FontAwesomeIcon icon={faEnvelope} /></span><input className="focus:outline-none border-b-2 border-black" value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} type="email" /></div>
+          <div className="my-[4vh] "><span className="mx-3"><FontAwesomeIcon icon={faLock} /></span><input className="focus:outline-none border-b-2 border-black" value={password} placeholder="Password" onChange={e => setPassword(e.target.value)} type="password" autoComplete="on" /></div>
         </form>
-        <div className="m-[5%] cursor-pointer" onClick={LoginUser} ><Button type="Login" /></div>
+        <div className="my-[1vh] cursor-pointer" onClick={LoginUser} ><Button type="Login" /></div>
       </div>
     </div>
   )

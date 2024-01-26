@@ -12,7 +12,7 @@ export default function getUser(dispatch,navigate){
         }
         else {
           dispatch(logOut())
-          navigate("/Login")
+          navigate("/login")
         }
       })
       .catch(() => {
@@ -28,11 +28,11 @@ export default function getUser(dispatch,navigate){
                 }
                 else {
                   dispatch(logOut())
-                  navigate("/Login")
+                  navigate("/login")
                 }
               }).catch(()=>{
-                navigate("/Login")
+                navigate("/login")
               })
-        }).catch(navigate("/Login"))
+        }).catch(navigate("/login"))
       })
 }
