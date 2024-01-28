@@ -105,10 +105,10 @@ function RegisterPage() {
 
 
         <form>
-          <div className="my-[1.5vh]"><span className="mx-3"><FontAwesomeIcon icon={faUser} /></span><input className="focus:outline-none border-b-2 border-black " value={fullName} placeholder="FullName" onChange={e => setfullName(e.target.value)} type="text" /></div>
-          <div className="my-[1.5vh]"><span className="mx-3"><FontAwesomeIcon icon={faAt} /></span><input className="focus:outline-none border-b-2 border-black" value={userName} placeholder="UserName" onChange={e => setUserName(e.target.value)} type="text" /></div>
-          <div className="my-[1.5vh]"><span className="mx-3"><FontAwesomeIcon icon={faEnvelope} /></span><input className="focus:outline-none border-b-2 border-black" value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} type="email" /></div>
-          <div className="my-[2.5%]"><span className="mx-3"><FontAwesomeIcon icon={faLock} /></span><input className="focus:outline-none border-b-2 border-black" value={password} placeholder="Password" onChange={e => setPassword(e.target.value)} type="password" autoComplete="on" /></div>
+          <div className="my-[1.5vh] w-[40vw] max-w-72"><FontAwesomeIcon icon={faUser} /><input className="focus:outline-none border-b-2 ml-[1.5vw] border-black w-[30vw] max-w-60" value={fullName} placeholder="FullName" onChange={e => setfullName(e.target.value)} type="text" /></div>
+          <div className="my-[1.5vh] w-[40vw] max-w-72"><FontAwesomeIcon icon={faAt} /><input className="focus:outline-none border-b-2 ml-[1.5vw] border-black w-[30vw] max-w-60" value={userName} placeholder="UserName" onChange={e => setUserName(e.target.value)} type="text" /></div>
+          <div className="my-[1.5vh] w-[40vw] max-w-72"><FontAwesomeIcon icon={faEnvelope} /><input className="focus:outline-none border-b-2 ml-[1.5vw] border-black w-[30vw] max-w-60" value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} type="email" /></div>
+          <div className="my-[2.5%] w-[40vw] max-w-72"><FontAwesomeIcon icon={faLock} /><input className="focus:outline-none border-b-2 ml-[1.5vw] border-black w-[30vw] max-w-60" value={password} placeholder="Password" onChange={e => setPassword(e.target.value)} type="password" autoComplete="on" /></div>
         </form>
         <div className="my-[10%] cursor-pointer" onClick={registerUser} ><Button type="Register" /></div>
         <ToastContainer />

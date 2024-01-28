@@ -15,7 +15,7 @@ const deleteUser = asyncHandler(async (req, res) => {
         }
         try {
     
-            const {avatarName}  = await User.findById(req.user._id)
+            const avatarName  = user.avatarName
             const blogArray = user.blogs
     
             for(let i = 0 ; i < blogArray.length ; i++){

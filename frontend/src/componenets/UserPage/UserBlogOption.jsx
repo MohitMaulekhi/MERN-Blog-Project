@@ -27,7 +27,7 @@ function UserBlogOption() {
 
         <ul className='flex justify-around w-[100%]'>
           <Link to={`/user`}><li onClick={clickedMyBlogs} className={`cursor-pointer ${MyBlogs?"border-b-[0.5vh]":""} border-orange-500`}>My Blogs</li></Link>
-          <Link to={`/user/Following`}><li onClick={clickedFollowing} className={`cursor-pointer ${Following?"border-b-[0.5vh]":""} border-orange-500`}>Following</li></Link>
+          {/* <Link to={`/user/Following`}><li onClick={clickedFollowing} className={`cursor-pointer ${Following?"border-b-[0.5vh]":""} border-orange-500`}>Following</li></Link> */}
           <Link to={`/user/Global`}><li onClick={clickedGlobal} className={`cursor-pointer ${Global?"border-b-[0.5vh]":""} border-orange-500`}>Global</li></Link>
         </ul>
   )

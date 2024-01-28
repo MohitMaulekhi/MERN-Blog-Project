@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-escape */
-import { Link,useNavigate} from "react-router-dom"
+import { useNavigate} from "react-router-dom"
 import { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLock } from '@fortawesome/free-solid-svg-icons'
@@ -9,7 +9,7 @@ import LoadingBar from 'react-top-loading-bar'
 import axios from "axios"
 import {useDispatch} from "react-redux"
 import getUser from "../../utils/get.js"
-
+import Container from "./Container.jsx"
 
 function ChangePassword() {
   const [oldPassword, setOldPassword] = useState("")
@@ -60,23 +60,23 @@ function ChangePassword() {
   }
 
   return (
-    <div className="min-h-screen min-w-[87.2vw] right-0 absolute flex items-center justify-center">
+    <>
         <LoadingBar
         color='#B19CD9'
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-        <div className="bg-slate-50 h-[60vh] w-[55vw] rounded-lg border-black border-2 font-extrabold font-mono">
-          <div className="float-right p-[0.5vh]"><Link to={"/user"}>X</Link></div>
-        <form className="flex flex-col justify-center items-center [30vh] w-[55vw] ">
-          <div className="my-[2.5%]"><span className="mx-2"><FontAwesomeIcon icon={faLock} /></span><span className="border-b-4 border-black"><input className="focus:outline-none" value={oldPassword} placeholder="Old Password" onChange={e => setOldPassword(e.target.value)} type="password" /></span></div>
-          <div className="my-[2.5%]"><span className="mx-2"><FontAwesomeIcon icon={faLock} /></span><span className="border-b-4 border-black"><input className="focus:outline-none" value={newPassword1} placeholder="New Password" onChange={e => setNewPassword1(e.target.value)} type="password" /></span></div>
-          <div className="my-[2.5%]"><span className="mx-2"><FontAwesomeIcon icon={faLock} /></span><span className="border-b-4 border-black"><input className="focus:outline-none" value={newPassword2} placeholder="New Password" onChange={e => setNewPassword2(e.target.value)} type="password" /></span></div>
-          <div className="w-[15vw] flex items-center justify-center text-[5vh]" onClick={handleChangePassword} ><FunctionBTN type = " Change Password " color="black" txtColor="white"  /></div>
+
+        <Container type = {
+        <form className="flex flex-col justify-center items-center">
+          <div className="my-[2.5vh] w-[35vw]"><FontAwesomeIcon icon={faLock} /><input className="focus:outline-none ml-[1vw] border-b-2 border-black w-[25vw]" value={oldPassword} placeholder="Old Password" onChange={e => setOldPassword(e.target.value)} type="password" /></div>
+          <div className="my-[2.5vh] w-[35vw]"><FontAwesomeIcon icon={faLock} /><input className="focus:outline-none ml-[1vw] border-b-2 border-black w-[25vw]" value={newPassword1} placeholder="New Password" onChange={e => setNewPassword1(e.target.value)} type="password" /></div>
+          <div className="my-[2.5vh] w-[35vw]"><FontAwesomeIcon icon={faLock} /><input className="focus:outline-none ml-[1vw] border-b-2 border-black w-[25vw]" value={newPassword2} placeholder="New Password" onChange={e => setNewPassword2(e.target.value)} type="password" /></div>
+          <div className="mt-[7vh]" onClick={handleChangePassword} ><FunctionBTN type = " Change Password " color="black" txtColor="white"  /></div>
         </form>       
-        </div>
+        }/>
         <ToastContainer/>
-    </div>
+    </>
   )
 }
 

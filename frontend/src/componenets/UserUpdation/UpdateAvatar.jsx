@@ -1,4 +1,4 @@
-import { Link,useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import {useSelector,useDispatch} from "react-redux"
 import { useState, useRef, useEffect } from "react";
 import {FunctionBTN} from "../index.js"
@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import axios  from "axios";
 import LoadingBar from 'react-top-loading-bar'
 import  getUser from "../../utils/get.js";
-
+import Container from "./Container.jsx"
 
 export default function UpdateAvatar() {
   const [progress,setProgress] = useState(0)
@@ -55,22 +55,21 @@ export default function UpdateAvatar() {
     }
 }
   return (
-    <div className="min-h-screen min-w-[87.2vw] right-0 absolute flex items-center justify-center">
+    <>
       <LoadingBar
         color='#B19CD9'
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
 
-      <div className="bg-slate-50 h-[50vh] w-[70vw] rounded-lg border-black border-2 font-extrabold font-mono"><div className="float-right p-[2vh]"><Link to={"/user"}>X</Link></div>
-        <div className="m-[3%] flex flex-col items-center justify-center"  >
+      <Container type={
+        <div className="flex flex-col items-center justify-center"  >
             <div onClick={handleClick} className=' h-[25vh] w-[25vh] rounded-full bg-cover hover:opacity-50' style={image ? { backgroundImage: `url(${URL.createObjectURL(image)})` } : { backgroundImage: `url(${img})` }}></div>
             <input type="file" ref={inputRef} onChange={handleChange} style={{ display: "none" }} accept="image/png, image/jpeg, image/jpg , image/webp" />
-            <div className="w-[7vw] flex items-center justify-center text-[5vh]" onClick={handleAvatarChange} ><FunctionBTN type = " Update " color="black" txtColor="white"  /></div>
+            <div className="mt-[5vh]" onClick={handleAvatarChange} ><FunctionBTN type = " Update " color="black" txtColor="white" width = "15vw"   /></div>
         </div>
-          
-      </div>
+      }/>
       <ToastContainer/>
-    </div>
+    </>
   )
 }

@@ -1,18 +1,40 @@
 import { Editor } from '@tinymce/tinymce-react';
-import { useState,useRef } from 'react';
+import { useState,useRef, useEffect } from 'react';
 import { FunctionBTN } from '../componenets/index.js'
 import { ToastContainer, toast } from 'react-toastify'
 import LoadingBar from 'react-top-loading-bar' 
 import axios from "axios"
-import {useNavigate} from "react-router-dom"
+import {useNavigate,useParams} from "react-router-dom"
 
-function BlogCreate() {
-  const [image, setImage] = useState("")
+
+function BlogUpdate() {
+  
   const [title,setTitle] = useState("")
+  const [content, setContent] = useState("")
+  const [blogImg, setblogImg] = useState("../src/assests/Empty_BlogImg.png")
+  useEffect(()=>{
+    axios.get(`/api/v1/blog/get/${params.blogId}`)
+    .then((data)=>{
+      setTitle(data.data.data.title)
+      setContent(data.data.data.content)
+      if(data.data.data.blogImg){
+        setblogImg(data.data.data.blogImg)
+      }
+    })
+    .catch(()=>{
+      setTimeout(() => {
+        toast.error("Invalid blog")
+      }, 2000); 
+      navigate("/user")
+      
+    })
+  })
+  const [image, setImage] = useState("")
   const editorRef = useRef(null)
   const inputRef = useRef(null)
   const [progress,setProgress] = useState(0)
   const navigate = useNavigate()
+  const params = useParams()
   const handleClick = () => {
     inputRef.current.click();
   }
@@ -31,9 +53,9 @@ function BlogCreate() {
     if(image){
       formData.append("blogImg",image)
     }
-    axios.post("/api/v1/blog/create",formData)
+    axios.post(`/api/v1/blog/update/${params.blogId}`,formData)
     .then(()=>{
-      toast.success("Blog created successfully")
+      toast.success("Blog updated successfully")
       setTimeout(() => {
         navigate("/user")
       }, 1000);
@@ -45,7 +67,6 @@ function BlogCreate() {
       }, 1000);
     })
     .finally(setProgress(100))
-
   }
   return (
     <div className="min-h-screen min-w-[100vw] flex justify-center items-center ">
@@ -73,11 +94,11 @@ function BlogCreate() {
           ],
           ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
         }}
-        initialValue="Learn from everyone!!!"
+        initialValue={content}
       /></div>
-      <div className=" my-[1vh] w-[90vw]" onClick={handleClick} >
-          <button>
-            <div className=' h-[13vh] w-[13vh]  bg-cover hover:opacity-50' style={image?{backgroundImage:`url(${URL.createObjectURL(image)})`}:{backgroundImage:`url(../src/assests/emptyImage.png)`}}></div>
+      <div className=" my-[1vh] w-[90vw]" >
+          <button  onClick={handleClick}>
+          <div className=' h-[13vh] w-[13vh]  bg-cover hover:opacity-50 bg-slate-600' style={image?{backgroundImage:`url(${URL.createObjectURL(image)})`}:{backgroundImage:`url(${blogImg})`}}></div>
             <input type="file" ref={inputRef} onChange={handleChange} style={{ display: "none" }} accept="image/png, image/jpeg, image/jpg image/webp" />
           </button>
           
@@ -89,4 +110,4 @@ function BlogCreate() {
   )
 }
 
-export default BlogCreate
+export default BlogUpdate

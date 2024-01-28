@@ -7,7 +7,6 @@ function AuthSidebar() {
   const [active1, setActive1] = useState(true)
   const [active2, setActive2] = useState(false)
   useEffect(() => {
-    console.log(location.pathname)
     if (location.pathname == "/login" || location.pathname == "/") {
       setActive1(true)
       setActive2(false)

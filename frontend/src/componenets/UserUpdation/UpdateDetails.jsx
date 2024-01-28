@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-escape */
-import { Link,useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 import { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser, faEnvelope, } from '@fortawesome/free-solid-svg-icons'
@@ -9,6 +9,7 @@ import LoadingBar from 'react-top-loading-bar'
 import axios from "axios"
 import {useDispatch} from "react-redux"
 import  getUser  from "../../utils/get.js"
+import Container from "./Container.jsx"
 
 function UpdateDetails() {
   const [fullName, setfullName] = useState("")
@@ -67,22 +68,21 @@ function UpdateDetails() {
   }
 
   return (
-    <div className="min-h-screen min-w-[87.2vw] right-0 absolute flex items-center justify-center">
+    <>
         <LoadingBar
         color='#B19CD9'
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-        <div className="bg-slate-50 h-[60vh] w-[55vw] rounded-lg border-black border-2 font-extrabold font-mono">
-          <div className="float-right p-[2vh]"><Link to={"/user"}>X</Link></div>
-        <form className="flex flex-col justify-center items-center [40vh] w-[55vw] ">
-          <div className="my-[2.5%]"><span className="mx-2"><FontAwesomeIcon icon={faUser} /></span><span className="border-b-4 border-black"><input className="focus:outline-none" value={fullName} placeholder="FullName" onChange={e => setfullName(e.target.value)} type="text" /></span></div>
-          <div className="my-[2.5%]"><span className="mx-2"><FontAwesomeIcon icon={faEnvelope} /></span><span className="border-b-4 border-black"><input className="focus:outline-none" value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} type="email" /></span></div>
-          <div className=" w-[10vw] flex items-center justify-center text-[5vh]" onClick={handleDetailsChange} ><FunctionBTN type = " Update " color="black" txtColor="white"  /></div>
-        </form>       
-        </div>
+        <Container type = {
+        <form className="flex flex-col justify-center items-center">
+          <div className="my-[2.5vh] w-[35vw]"><FontAwesomeIcon icon={faUser} /><input className="focus:outline-none ml-[1vw] border-b-2 border-black w-[25vw] " value={fullName} placeholder="FullName" onChange={e => setfullName(e.target.value)} type="text" /></div>
+          <div className="my-[2.5vh] w-[35vw]"><FontAwesomeIcon icon={faEnvelope} /><input className="focus:outline-none ml-[1vw] border-b-2 border-black w-[25vw]  " value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} type="email" /></div>
+          <div className="mt-[7vh]" onClick={handleDetailsChange} ><FunctionBTN type = " Update " color="black" txtColor="white" width = "15vw"  /></div>
+        </form>
+        }/>
         <ToastContainer/>
-    </div>
+    </>
   )
 }
 

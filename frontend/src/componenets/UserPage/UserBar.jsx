@@ -25,7 +25,7 @@ function UserBar() {
         <Link className='my-[1vh]' to={`/user/updateAvatar`}><FunctionBTN type="Update Avatar" color="white" txtColor="black" width = "10vw" /></Link>
         <Link className='my-[1vh]' to={`/user/updateDetails`}><FunctionBTN type="Update Details" color="white" txtColor="black" width = "10vw" /></Link>
         <Link className='my-[1vh]' to={`/user/changePassword`}><FunctionBTN type="Change Password" color="white" txtColor="black" width = "10vw" /></Link>
-        <div className='mt-[15vh]'><FunctionBTN onClick = {handleLogOut} type=" Logout" color="black" txtColor="white" width = "10vw" /></div>
+        <div className='mt-[15vh]' onClick = {handleLogOut} ><FunctionBTN type=" Logout" color="black" txtColor="white" width = "10vw" /></div>
         <Link className='my-[1vh]' to={`/user/deleteAccount`}><FunctionBTN type="Delete Account" color="black" txtColor="white" width = "10vw" /></Link>
       </div>
     </div>

@@ -77,8 +77,8 @@ function LoginPage() {
         <div className="h-[25vh] w-[25vh] max-w-[30vw]"><img src="..\src\assests\Logo.svg" alt="none" /></div>
 
         <form className="my-[5vh]">
-          <div className="my-[4vh] "><span className="mx-3"><FontAwesomeIcon icon={faEnvelope} /></span><input className="focus:outline-none border-b-2 border-black" value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} type="email" /></div>
-          <div className="my-[4vh] "><span className="mx-3"><FontAwesomeIcon icon={faLock} /></span><input className="focus:outline-none border-b-2 border-black" value={password} placeholder="Password" onChange={e => setPassword(e.target.value)} type="password" autoComplete="on" /></div>
+          <div className="my-[4vh] max-w-72 w-[40vw]"><FontAwesomeIcon icon={faEnvelope} /><input className="focus:outline-none border-b-2 ml-[1.5vw] border-black w-[30vw] max-w-60" value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} type="email" /></div>
+          <div className="my-[4vh] max-w-72 w-[40vw]"><FontAwesomeIcon icon={faLock} /><input className="focus:outline-none border-b-2 ml-[1.5vw] border-black w-[30vw] max-w-60" value={password} placeholder="Password" onChange={e => setPassword(e.target.value)} type="password" autoComplete="on" /></div>
         </form>
         <div className="my-[1vh] cursor-pointer" onClick={LoginUser} ><Button type="Login" /></div>
       </div>
