@@ -7,7 +7,6 @@ export default function getUser(dispatch,navigate){
         if (userData) {
 
           dispatch(login({ userData: userData.data }))
-          navigate("/user")
           return null
         }
         else {
@@ -23,7 +22,6 @@ export default function getUser(dispatch,navigate){
                 if (userData) {
         
                   dispatch(login({ userData: userData.data }))
-                  navigate("/user")
                   return null
                 }
                 else {

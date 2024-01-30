@@ -10,6 +10,7 @@ function App() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   useEffect(()=>{
+    navigate("/Login")
     getUser(dispatch,navigate)
     setLoading(false)
   // eslint-disable-next-line react-hooks/exhaustive-deps

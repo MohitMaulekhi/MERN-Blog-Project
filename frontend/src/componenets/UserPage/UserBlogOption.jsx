@@ -1,11 +1,19 @@
 import {Link } from "react-router-dom"
-import { useState } from "react"
-
+import { useEffect, useState } from "react"
+import {useLocation} from "react-router-dom"
 
 function UserBlogOption() {
+    let location = useLocation()
     const [MyBlogs,setMyBlogs] = useState(1)
     const [Following,setFollowing] = useState(0)
     const [Global,setGlobal] = useState(0)
+    useEffect(()=>{
+      if(location.pathname != "/user"){
+        setGlobal(1)
+        setMyBlogs(0)
+    }
+    })
+    
     const clickedMyBlogs = ()=>{
         setMyBlogs(1)
         setFollowing(0)
