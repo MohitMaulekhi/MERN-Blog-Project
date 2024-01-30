@@ -9,7 +9,7 @@ import { deleteOnCloudinary } from "../utils/cloudinaryDelete.js"
 
 const createBlog = asyncHandler(async (req, res) => {
     const {title,content} = req.body
-    
+    const user = await User.findByIdAndUpdate(req.user?._id)
     if (title === "" || content === "")
     {
         throw new ApiError(400, "All field are necessary")
@@ -28,6 +28,7 @@ const createBlog = asyncHandler(async (req, res) => {
         title,
         blogImg: blogImg?.url || '',
         blogImgName: blogImg?.public_id || '',
+        author:user.username,
         content
     })
 
@@ -38,9 +39,9 @@ const createBlog = asyncHandler(async (req, res) => {
     }
 
     try {
-        const user = await User.findByIdAndUpdate(req.user?._id)
+        
         user.blogs.push(createdBlog)
-        user.save()
+        await user.save()
     } catch (error) {
         await Blog.deleteOne({_id: createdBlog._id})
         throw new ApiError("501", "Error while creating Blog. Try again Later")
@@ -188,11 +189,32 @@ const getAllBlogs = asyncHandler(async(req,res)=>{
     }
 })
 
+const getGlobal = asyncHandler(async(req,res)=>{
+    const id = req.params.id
+    let userAuth = false
+    try {
+        
+        const user = await User.findById(req.user._id)
+        const blogArray = user.blogs.map((blog)=>{
+            return blog.toString()
+        } )
+        const blogs = await Blog.find({_id:{$nin:blogArray}}).limit(12).skip(12*req.params.pagenumber)
+        return res.status(201).json(
+        new ApiResponse(200, blogs, "Blogs fetched succesfully")
+    )
+
+    } catch (error) {
+        throw new ApiError(404,"user Not found")
+    }
+    
+})
+
 
 export{
     createBlog,
     getBlog,
     updateBlog,
     deleteBlog,
-    getAllBlogs
+    getAllBlogs,
+    getGlobal
 }

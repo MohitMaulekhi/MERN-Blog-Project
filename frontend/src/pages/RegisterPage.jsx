@@ -91,12 +91,12 @@ function RegisterPage() {
         onLoaderFinished={() => setProgress(0)}
       />
       <div className=" max-h-[55vh] flex flex-col justify-center items-center">
-        <div className="w-[25vh] max-w-[30vw]"><img src="..\src\assests\Logo.svg" alt="none" /></div>
+        <div className="w-[25vh] max-w-[30vw]"><img src="https://res.cloudinary.com/mohitproject/image/upload/v1706437261/Assets/zkqxpwoigmgnp6xzjwpm.svg" alt="none" /></div>
 
 
 
         <div className="" onClick={handleClick} >
-          <div className=' h-[20vh] w-[20vh] rounded-full bg-cover hover:opacity-50' style={image ? { backgroundImage: `url(${URL.createObjectURL(image)})` } : { backgroundImage: `url(../src/assests/Default_profile.jpg)` }}>
+          <div className=' h-[20vh] w-[20vh] max-w-28 max-h-28 rounded-full bg-cover hover:opacity-50' style={image ? { backgroundImage: `url(${URL.createObjectURL(image)})` } : { backgroundImage: `url(https://res.cloudinary.com/mohitproject/image/upload/v1706437249/Assets/ig1r0citioyfixiqzfvq.png)` }}>
 
           </div>
           <input type="file" ref={inputRef} onChange={handleChange} style={{ display: "none" }} accept="image/png, image/jpeg, image/jpg image/webp" />

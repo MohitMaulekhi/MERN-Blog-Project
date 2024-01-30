@@ -11,7 +11,7 @@ function UserNav() {
     <div className=" bg-mainBlue flex justify-end h-[11vh]">
       <div className=' flex flex-wrap-reverse'>
         <div className='self-center  font-bold font-sans text-[3vh] mx-[1vw] text-white'>Welcome <span className='text-white '>{nameArray ? nameArray[0] : "user"}</span></div>
-        <Link to={`/user/updateAvatar`}><div className='cursor-pointer h-[11vh] w-[11vh] bg-white rounded-full bg-cover hover:opacity-65' style={counter?.data.avatar ? { backgroundImage: `url(${counter?.data.avatar})` } : { backgroundImage: `url(../src/assests/Default_profile.jpg)` }}></div></Link>
+        <Link to={`/user/updateAvatar`}><div className='cursor-pointer h-[11vh] w-[11vh] bg-white rounded-full bg-cover hover:opacity-65' style={counter?.data.avatar ? { backgroundImage: `url(${counter?.data.avatar})` } : { backgroundImage: `url(https://res.cloudinary.com/mohitproject/image/upload/v1706437249/Assets/ig1r0citioyfixiqzfvq.png)` }}></div></Link>
       </div>
         
     </div>

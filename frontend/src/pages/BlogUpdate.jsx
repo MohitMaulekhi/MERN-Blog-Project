@@ -11,7 +11,7 @@ function BlogUpdate() {
   
   const [title,setTitle] = useState("")
   const [content, setContent] = useState("")
-  const [blogImg, setblogImg] = useState("../src/assests/Empty_BlogImg.png")
+  const [blogImg, setblogImg] = useState("https://res.cloudinary.com/mohitproject/image/upload/v1706437260/Assets/wjaajuiwnuadcmllzhat.png")
   useEffect(()=>{
     axios.get(`/api/v1/blog/get/${params.blogId}`)
     .then((data)=>{
@@ -98,7 +98,7 @@ function BlogUpdate() {
       /></div>
       <div className=" my-[1vh] w-[90vw]" >
           <button  onClick={handleClick}>
-          <div className=' h-[13vh] w-[13vh]  bg-cover hover:opacity-50 bg-slate-600' style={image?{backgroundImage:`url(${URL.createObjectURL(image)})`}:{backgroundImage:`url(${blogImg})`}}></div>
+          <div className=' h-[13vh] w-[13vh]  bg-cover hover:opacity-50' style={image?{backgroundImage:`url(${URL.createObjectURL(image)})`}:{backgroundImage:`url(${blogImg})`}}></div>
             <input type="file" ref={inputRef} onChange={handleChange} style={{ display: "none" }} accept="image/png, image/jpeg, image/jpg image/webp" />
           </button>
           

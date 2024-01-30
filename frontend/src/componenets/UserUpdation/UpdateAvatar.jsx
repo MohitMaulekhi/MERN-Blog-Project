@@ -10,7 +10,7 @@ import Container from "./Container.jsx"
 
 export default function UpdateAvatar() {
   const [progress,setProgress] = useState(0)
-  const [img,setImg] = useState("../src/assests/Default_profile.jpg")
+  const [img,setImg] = useState("https://res.cloudinary.com/mohitproject/image/upload/v1706437249/Assets/ig1r0citioyfixiqzfvq.png")
   let counter = (useSelector(state => state.authSlice.userData))
   useEffect(()=>{
     if(counter.data.avatar){

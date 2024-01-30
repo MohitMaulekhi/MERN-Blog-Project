@@ -77,7 +77,7 @@ function BlogCreate() {
       /></div>
       <div className=" my-[1vh] w-[90vw]" onClick={handleClick} >
           <button>
-            <div className=' h-[13vh] w-[13vh]  bg-cover hover:opacity-50' style={image?{backgroundImage:`url(${URL.createObjectURL(image)})`}:{backgroundImage:`url(../src/assests/emptyImage.png)`}}></div>
+            <div className=' h-[13vh] w-[13vh]  bg-cover hover:opacity-50' style={image?{backgroundImage:`url(${URL.createObjectURL(image)})`}:{backgroundImage:`url(https://res.cloudinary.com/mohitproject/image/upload/v1706437260/Assets/wjaajuiwnuadcmllzhat.png)`}}></div>
             <input type="file" ref={inputRef} onChange={handleChange} style={{ display: "none" }} accept="image/png, image/jpeg, image/jpg image/webp" />
           </button>
           

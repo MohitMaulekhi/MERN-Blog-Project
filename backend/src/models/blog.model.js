@@ -8,6 +8,10 @@ const blogSchema = new Schema(
             required: true,
             index:true
         },
+        author:{
+            type:String,
+            required: true
+        },
         blogImg:{
             type:String
         },

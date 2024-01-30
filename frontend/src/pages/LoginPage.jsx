@@ -74,7 +74,7 @@ function LoginPage() {
       />
       <ToastContainer/>
       <div className=" h-[40vh] flex flex-col justify-center items-center">
-        <div className="h-[25vh] w-[25vh] max-w-[30vw]"><img src="..\src\assests\Logo.svg" alt="none" /></div>
+        <div className="h-[25vh] w-[25vh] max-w-[30vw]"><img src="https://res.cloudinary.com/mohitproject/image/upload/v1706437261/Assets/zkqxpwoigmgnp6xzjwpm.svg" alt="none" /></div>
 
         <form className="my-[5vh]">
           <div className="my-[4vh] max-w-72 w-[40vw]"><FontAwesomeIcon icon={faEnvelope} /><input className="focus:outline-none border-b-2 ml-[1.5vw] border-black w-[30vw] max-w-60" value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} type="email" /></div>
