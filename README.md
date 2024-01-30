@@ -1,4 +1,5 @@
-<pre>To start the web application you have to create your mongoDb Atlas account and cloudinary account and then setup an .env file in the backend folder with these entries
+To start the web application you have to create your mongoDb Atlas account and cloudinary account and then setup an .env file in the backend folder with these entries
+<pre>
     PORT=
     MONGODB_URI=
     CORS_ORIGIN=*  # All for all urls
