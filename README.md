@@ -1,4 +1,5 @@
 To start the web application you have to create your mongoDb Atlas account and cloudinary account and then setup an .env file in the backend folder with these entries
+<pre>
     PORT=
     MONGODB_URI=
     CORS_ORIGIN=*  # All for all urls
@@ -9,7 +10,7 @@ To start the web application you have to create your mongoDb Atlas account and c
     CLOUDINARY_API_SECRET = 
     CLOUDINARY_API_KEY = 
     CLOUDINARY_API_NAME = 
-
+<pre/>
 To start backend: 
 In backend folder: <b>npm run start</b>
 
