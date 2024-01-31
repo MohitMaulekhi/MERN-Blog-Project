@@ -41,7 +41,7 @@ function Global() {
       />
         {
 
-          blogCounter.map((blog) => {
+          blogCounter?.map((blog) => {
             return blog?(
             
               <Link to={`/blog/0/${blog._id}`} className='flex flex-col border-2 border-black rounded-md p-4 bg-white h-[35vh]'>    
