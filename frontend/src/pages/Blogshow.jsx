@@ -46,7 +46,7 @@ function Blogshow() {
     axios.get(`/api/v1/blog/delete/${params.blogId}`)
       .then(() => {
         setTimeout(() => {
-          toast.success("Blog delted successfully")
+          toast.success("Blog deleted successfully")
         }, 2000);
         navigate("/user")
       })
