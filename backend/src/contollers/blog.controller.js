@@ -70,7 +70,6 @@ const updateBlog = asyncHandler(async(req,res)=>{
     const id = req.params.id
     const blog = await Blog.findById(id)
     const user = await User.findById(req.user._id)
-    console.log(blog.author === user.username)
     if (blog.author === user.username) {
         
     
@@ -125,22 +124,9 @@ const updateBlog = asyncHandler(async(req,res)=>{
 
 const deleteBlog = asyncHandler(async(req,res)=>{
     const id = req.params.id
-    let userAuth = false
-    let user = await User.findById(req.user._id)
-    try {
-        
-        const blogArray = user.blogs
-        for(let i = 0 ; i < blogArray.length ; i++){
-            if(toString(id) === toString(blogArray[i]._id)){
-                userAuth = true
-                break
-            }
-        }
-
-    } catch (error) {
-        throw new ApiError(404,"user Not found")
-    }
-    if (userAuth) {
+    const blog = await Blog.findById(id)
+    const user = await User.findById(req.user._id)
+    if (blog.author === user.username) {
         const {blogImgName} =  await Blog.findById(id)
         if(blogImgName){
             await deleteOnCloudinary(blogImgName)
@@ -176,8 +162,6 @@ const getAllBlogs = asyncHandler(async(req,res)=>{
 })
 
 const getGlobal = asyncHandler(async(req,res)=>{
-    const id = req.params.id
-    let userAuth = false
     try {
         
         const user = await User.findById(req.user._id)
