@@ -28,11 +28,17 @@ function MyBlogs() {
           })
         }
       </div>
+      <div className='absolute bottom-[2.5vh] right-[5vw]'>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScLCP-vIpmF3VHgQSehLn6-aIUNfhvlzp3eeyn5QFe3cAHYFA/viewform?usp=sf_link"  target="_blank" rel="noreferrer" ><button className="h-[5vmin] w-[10vmin] z-10 m-[1vh] bg-black text-white text-[2vmin] font-serif font-medium rounded-full hover:opacity-90">
+        Feedback
+      </button></a>
       <NavLink to={"/blog/create"}>
-        <button className="absolute bottom-[2.5vh] h-[7.5vh] w-[7.5vh] min-h-12 min-w-12 right-[5vw] z-10 m-[1vh] bg-mainBlue rounded-full hover:opacity-90">
+        <button className="h-[7.5vmin] w-[7.5vmin] z-10 m-[1vh] bg-mainBlue rounded-full hover:opacity-90">
           <FontAwesomeIcon icon={faPlus} size="2xl" style={{ color: "#ffffff", }} />
         </button>
-      </NavLink>
+        </NavLink>
+        </div>
+      
     </>
   )
 }
