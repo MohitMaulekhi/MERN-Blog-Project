@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 function UserNav() {
     let counter = (useSelector(state => state.authSlice.userData))
-    const nameArray = counter?.data.fullName.split(" ")
+    const nameArray =  counter?"":counter.data.fullName.split(" ")
   return (
     <div className="">
     <div className=" bg-mainBlue flex justify-end h-[11vh]">
