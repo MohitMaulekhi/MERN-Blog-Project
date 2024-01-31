@@ -68,25 +68,10 @@ const getBlog = asyncHandler(async (req,res)=>{
 const updateBlog = asyncHandler(async(req,res)=>{
     const {title,content} = req.body
     const id = req.params.id
-    let userAuth = false
-    try {
-        const user = await User.findById(req.user._id)
-        const blogArray = user.blogs
-        for(let i = 0 ; i < blogArray.length ; i++){
-            console.log("check")
-            if(toString(id) === toString(blogArray[i]._id)){
-                console.log(id,blogArray[i]._id)
-                userAuth = true
-                break
-            }
-        }
-
-    } catch (error) {
-        throw new ApiError(404,"user Not found")
-    }
-    console.log(userAuth)
-    if (userAuth) {
-        const blog = await Blog.findById(id)
+    const blog = await Blog.findById(id)
+    const user = await User.findById(req.user._id)
+    if (blog.author === user.username) {
+        
     
         if(!blog){
             throw new ApiError(404,"Blog Not Found")
