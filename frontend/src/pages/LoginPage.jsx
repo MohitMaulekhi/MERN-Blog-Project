@@ -32,7 +32,7 @@ function LoginPage() {
     }
     else{
       setProgress(progress+20)
-      await axios.post("/api/v1/user/login",{email,password})
+      await axios.post("/api/v1/user/login",{email,password},{withCredentials:true})
       .then((response) => {
         toast.success(response.data.message)
         setProgress(progress+20)

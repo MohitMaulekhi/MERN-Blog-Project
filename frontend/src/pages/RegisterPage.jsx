@@ -55,7 +55,7 @@ function RegisterPage() {
       formData.append("password", password)
       setProgress(progress + 20)
       await axios
-        .post('/api/v1/user/register', formData)
+        .post('/api/v1/user/register', formData,{withCredentials:true})
         .then((response) => {
           toast.success(response.data.message)
           setProgress(100)
