@@ -35,7 +35,7 @@ function DeleteAccount() {
           toast.success(response.data.message)
           setTimeout(() => {
             dispatch(logOut())
-            axios.get('/api/v1/user/logout')
+            axios.get('/api/v1/user/logout',{withCredentials:true})
             
           }, 100);
           navigate('/Login')

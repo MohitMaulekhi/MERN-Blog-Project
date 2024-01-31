@@ -18,7 +18,7 @@ function Blog() {
   }, [dispatch, navigate])
 
   useEffect(() => {
-    axios.get("/api/v1/blog/getAllBlogs")
+    axios.get("/api/v1/blog/getAllBlogs",{withCredentials:true})
       .then((blogdata) => {
         dispatch(blogsStorage({ blogData: blogdata.data.data }))
       })

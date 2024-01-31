@@ -9,9 +9,7 @@ import { RegisterPage, LoginPage, BlogCreate,Blogshow,BlogUpdate } from "./pages
 import 'react-toastify/dist/ReactToastify.css';
 import Blog from './Blog.jsx'
 import { UpdateAvatar, ChangePassword, DeleteAccount, UpdateDetails } from './componenets/index.js'
-import axios from "axios"
 
-axios.defaults.withCredentials = true
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
