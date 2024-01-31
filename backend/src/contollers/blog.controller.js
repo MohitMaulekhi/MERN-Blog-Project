@@ -73,7 +73,9 @@ const updateBlog = asyncHandler(async(req,res)=>{
         const user = await User.findById(req.user._id)
         const blogArray = user.blogs
         for(let i = 0 ; i < blogArray.length ; i++){
+            console.log("check")
             if(toString(id) === toString(blogArray[i]._id)){
+                console.log(id,blogArray[i]._id)
                 userAuth = true
                 break
             }
