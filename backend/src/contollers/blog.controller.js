@@ -70,6 +70,7 @@ const updateBlog = asyncHandler(async(req,res)=>{
     const id = req.params.id
     const blog = await Blog.findById(id)
     const user = await User.findById(req.user._id)
+    console.log(blog.author === user.username)
     if (blog.author === user.username) {
         
     
