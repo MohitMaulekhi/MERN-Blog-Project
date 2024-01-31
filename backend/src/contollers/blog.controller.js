@@ -82,7 +82,7 @@ const updateBlog = asyncHandler(async(req,res)=>{
     } catch (error) {
         throw new ApiError(404,"user Not found")
     }
-
+    console.log(userAuth)
     if (userAuth) {
         const blog = await Blog.findById(id)
     
@@ -95,8 +95,6 @@ const updateBlog = asyncHandler(async(req,res)=>{
         {
             throw new ApiError(400, "All field are necessary")
         }
-    
-        
         let blogImgLocalPath = req.file?.path;
     
         
