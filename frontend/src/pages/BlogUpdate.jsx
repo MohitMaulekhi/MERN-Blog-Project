@@ -13,7 +13,7 @@ function BlogUpdate() {
   const [content, setContent] = useState("")
   const [blogImg, setblogImg] = useState("https://res.cloudinary.com/mohitproject/image/upload/v1706437260/Assets/wjaajuiwnuadcmllzhat.png")
   useEffect(()=>{
-    axios.get(`/api/v1/blog/get/${params.blogId}`,{withCredentials:true})
+    axios.get(`/api/v1/blog/get/${params.blogId}`)
     .then((data)=>{
       setTitle(data.data.data.title)
       setContent(data.data.data.content)

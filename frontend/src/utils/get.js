@@ -2,7 +2,7 @@ import axios from "axios"
 import { login, logOut } from "../store/authSlice.js"
 
 export default function getUser(dispatch,navigate){
-    axios.get('/api/v1/user/current',{withCredentials:true})
+    axios.get('/api/v1/user/current')
       .then((userData) => {
         if (userData) {
 
@@ -15,9 +15,9 @@ export default function getUser(dispatch,navigate){
         }
       })
       .catch(() => {
-        axios.post("/api/v1/user/refresh-token",{withCredentials:true})
+        axios.post("/api/v1/user/refresh-token")
         .then(()=>{
-            axios.get('/api/v1/user/current',{withCredentials:true})
+            axios.get('/api/v1/user/current')
             .then((userData) => {
                 if (userData) {
         

@@ -16,7 +16,7 @@ function Blogshow() {
   const [loading, setLoading] = useState(1)
   useEffect(() => {
     setProgress(30)
-    axios.get(`/api/v1/blog/get/${params.blogId}`,{withCredentials:true})
+    axios.get(`/api/v1/blog/get/${params.blogId}`,)
       .then((data) => {
         setProgress(70)
         setTitle(data.data.data.title)
@@ -43,7 +43,7 @@ function Blogshow() {
 
   const handleClickedDelete = () => {
     setProgress(20)
-    axios.get(`/api/v1/blog/delete/${params.blogId}`,{withCredentials:true})
+    axios.get(`/api/v1/blog/delete/${params.blogId}`)
       .then(() => {
         setTimeout(() => {
           toast.success("Blog deleted successfully")

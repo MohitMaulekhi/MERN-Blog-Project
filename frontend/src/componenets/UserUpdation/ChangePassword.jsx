@@ -30,7 +30,7 @@ function ChangePassword() {
       
       setProgress(progress + 20)
       await axios
-      .patch('/api/v1/user/update/password', {oldPassword,newPassword:newPassword1},{withCredentials:true})
+      .patch('/api/v1/user/update/password', {oldPassword,newPassword:newPassword1})
       .then((response) => {
         toast.success(response.data.message)
         getUser(dispatch,navigate)
