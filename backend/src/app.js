@@ -13,8 +13,8 @@ app.use(cors({
 
 
 // Configuration
-app.use(express.json({ }))
-app.use(express.urlencoded({})) 
+app.use(express.json())
+app.use(express.urlencoded({extended: true})) 
 app.use(express.static("public")) // serving public folder as static for app
 app.use(cookieParser()) // for using secure cookies
 

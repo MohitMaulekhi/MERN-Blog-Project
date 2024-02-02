@@ -121,18 +121,23 @@ const loginUser = asyncHandler(async (req, res) => {
     // console.log("stage 7 completed")
 
 
-    const options = {
-        HttpOnly : true,
-        Secure : true,
-        SameSite : SameSiteMode.None
-    }
     // console.log("stage 8 completed")
 
 
     return res
         .status(200)
-        .cookie("accessToken", accessToken, options)
-        .cookie("refreshToken", refreshToken, options)
+        .cookie("accessToken", accessToken,{
+            httpOnly:true,
+            maxAge:15*60*1000,
+            sameSite:"none",
+            secure:true,
+        })
+        .cookie("refreshToken", refreshToken,{
+            httpOnly:true,
+            maxAge:15*60*1000,
+            sameSite:"none",
+            secure:true,
+        })
         .json(
             new ApiResponse(
                 200,
@@ -165,8 +170,16 @@ const logoutUser = asyncHandler(async (req, res) => {
         SameSite : SameSiteMode.None
     }
     return res.status(200)
-        .clearCookie("accessToken", options)
-        .clearCookie("refreshToken", options)
+        .cookie("accessToken","",{
+            expires:new Date(Date.now()),
+            sameSite:"none",
+            secure:true,
+        })
+        .cookie("refreshToken","",{
+            expires:new Date(Date.now()),
+            sameSite:"none",
+            secure:true,
+        })
         .json(new ApiResponse(200, {}, "User logged Out"))
 })
 
@@ -195,16 +208,21 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
         if (incomingRefreshToken !== user?.refreshToken) {
             throw new ApiError(401, "Refresh Token expired or used")
         }
-        const options = {
-            HttpOnly : true,
-            Secure : true,
-            SameSite : SameSiteMode.None
-        }
         const { accessToken, refreshToken } = await generateAcessAndRefreshToken(user._id)
         return res
             .status(200)
-            .cookie("accessToken", accessToken, options)
-            .cookie("refreshToken", refreshToken, options)
+            .cookie("accessToken", accessToken,{
+                httpOnly:true,
+                maxAge:15*60*1000,
+                sameSite:none,
+                secure:true,
+            })
+            .cookie("refreshToken", refreshToken,{
+                httpOnly:true,
+                maxAge:15*60*1000,
+                sameSite:none,
+                secure:true,
+            })
             .json(
                 new ApiResponse(200,
                     {
