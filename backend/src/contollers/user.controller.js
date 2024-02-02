@@ -122,8 +122,9 @@ const loginUser = asyncHandler(async (req, res) => {
 
 
     const options = {
-        httpOnly: true,
-        secure: true
+        HttpOnly : true,
+        Secure : true,
+        SameSite : SameSiteMode.None
     }
     // console.log("stage 8 completed")
 
@@ -159,8 +160,9 @@ const logoutUser = asyncHandler(async (req, res) => {
 
     )
     const options = {
-        httpOnly: true,
-        secure: true
+        HttpOnly : true,
+        Secure : true,
+        SameSite : SameSiteMode.None
     }
     return res.status(200)
         .clearCookie("accessToken", options)
@@ -194,8 +196,9 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
             throw new ApiError(401, "Refresh Token expired or used")
         }
         const options = {
-            httpOnly: true,
-            secure: true
+            HttpOnly : true,
+            Secure : true,
+            SameSite : SameSiteMode.None
         }
         const { accessToken, refreshToken } = await generateAcessAndRefreshToken(user._id)
         return res

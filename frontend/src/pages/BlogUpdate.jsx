@@ -30,7 +30,7 @@ function BlogUpdate() {
       navigate("/user")
       
     })
-  })
+  },[])
   const [image, setImage] = useState("")
   const editorRef = useRef(null)
   const inputRef = useRef(null)
