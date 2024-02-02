@@ -6,21 +6,15 @@ import cookieParser from "cookie-parser"
 const app = express();
 
 app.use(cors({
-    origin: process.env.CORS_ORIGIN,
-    methods:"GET,HEAD,PUT,PATCH,POST,DELETE",
-    optionsSuccessStatus:204,
-    preflightContinue:false
-}))
+    origin:[process.env.CORS_ORIGIN],
+    methods:["GET","PUT","POST","DELETE"],
+    credentials:true
+}));
 
 
 // Configuration
-app.use(express.json({  //limiting json data to 256kb
-    limit: "256kb"
-}))
-app.use(express.urlencoded({   // making enconding standard and limiting it to 256kb
-    extended: true,
-    limit: "256kb"
-}))
+app.use(express.json({ }))
+app.use(express.urlencoded({})) 
 app.use(express.static("public")) // serving public folder as static for app
 app.use(cookieParser()) // for using secure cookies
 
