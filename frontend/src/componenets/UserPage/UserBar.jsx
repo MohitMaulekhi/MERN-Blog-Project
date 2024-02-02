@@ -5,7 +5,9 @@ import { ToastContainer, toast } from 'react-toastify'
 function UserBar() {
     const navigate = useNavigate()
     const handleLogOut = ()=>{
-        axios.get('/api/v1/user/logout')
+        axios.get('/api/v1/user/logout',{
+          withCredentials:true,
+        })
         .then(()=>{
           toast.success("User logged out success fully")
           setTimeout(() => {

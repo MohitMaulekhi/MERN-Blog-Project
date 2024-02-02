@@ -11,7 +11,9 @@ function Global() {
   const [progress, setProgress] = useState(0);
   const getData = async () => {
     setProgress(20)
-    axios.get(`/api/v1/blog/getGlobal/page/${page}`)
+    axios.get(`/api/v1/blog/getGlobal/page/${page}`,{
+      withCredentials:true,
+    })
     .then((data)=>{
       setBlogCounter((prev) => [...prev, ...data.data.data])
     })

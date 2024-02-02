@@ -31,7 +31,9 @@ function BlogCreate() {
     if(image){
       formData.append("blogImg",image)
     }
-    axios.post("/api/v1/blog/create",formData)
+    axios.post("/api/v1/blog/create",formData,{
+      withCredentials:true,
+    })
     .then(()=>{
       toast.success("Blog created successfully")
       setTimeout(() => {
