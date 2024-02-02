@@ -37,7 +37,6 @@ function LoginPage() {
       })
       .then((response) => {
         toast.success(response.data.message)
-        console.log(response.data)
         setProgress(progress+20)
         navigate("/user")
         

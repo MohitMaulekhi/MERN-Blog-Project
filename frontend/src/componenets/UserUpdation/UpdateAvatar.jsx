@@ -34,7 +34,9 @@ export default function UpdateAvatar() {
       const formData = new FormData()
       formData.append("avatar", image);
       setProgress(30)
-      axios.patch("/api/v1/user/update/avatar",formData)
+      axios.patch("/api/v1/user/update/avatar",formData,{
+        withCredentials:true,
+      })
       .then(()=>{
         toast.done("Profile updated")
         getUser(dispatch,navigate)

@@ -38,7 +38,9 @@ function UpdateDetails() {
       
       setProgress(progress + 20)
       await axios
-      .patch('/api/v1/user/update/details', {email,fullName})
+      .patch('/api/v1/user/update/details', {email,fullName},{
+        withCredentials:true,
+      })
       .then((response) => {
         toast.success(response.data.message)
         getUser(dispatch,navigate)

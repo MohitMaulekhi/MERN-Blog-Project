@@ -30,12 +30,16 @@ function DeleteAccount() {
       if(confirm("Do you want to delete your account?") == true){
         setProgress(progress + 20)
         await axios
-        .post('/api/v1/user/delete', {password:password1})
+        .post('/api/v1/user/delete', {password:password1},{
+          withCredentials:true,
+        })
         .then((response) => {
           toast.success(response.data.message)
           setTimeout(() => {
             dispatch(logOut())
-            axios.get('/api/v1/user/logout')
+            axios.get('/api/v1/user/logout',{
+              withCredentials:true,
+            })
             
           }, 100);
           navigate('/Login')
