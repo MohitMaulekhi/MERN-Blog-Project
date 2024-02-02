@@ -12,6 +12,8 @@ import { UpdateAvatar, ChangePassword, DeleteAccount, UpdateDetails } from './co
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://bestblog.onrender.com';
+axios.defaults.withCredentials = true
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
