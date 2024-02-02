@@ -61,7 +61,7 @@ function BlogCreate() {
         <h6 className='font-bold text-[4vh]'>Title:- <input className='focus:outline-none border-black text-gray-900 border-b-4 w-[40vw] text-[3.5vh]' placeholder='Enter Title' type="text" value={title} onChange={(e)=>(setTitle(e.target.value))} /></h6>
         </div>
           <div className='my-[4vh]'><Editor
-        apiKey= 'naokvvci176874ex26f8nls7i9iblrdsfblxpvq7c4lmq6na'
+        apiKey= {import.meta.env.VITE_TINY_MCE_API_KEY}
         onInit={(evt,editor) => editorRef.current = editor}
         init={{
           menubar: false,
