@@ -164,19 +164,12 @@ const logoutUser = asyncHandler(async (req, res) => {
         }
 
     )
-    const options = {
-        HttpOnly : true,
-        Secure : true,
-        SameSite : SameSiteMode.None
-    }
     return res.status(200)
-        .cookie("accessToken","",{
-            expires:new Date(Date.now()),
+        .clearCookie("accessToken",{
             sameSite:"none",
             secure:true,
         })
-        .cookie("refreshToken","",{
-            expires:new Date(Date.now()),
+        .clearCookie("refreshToken",{
             sameSite:"none",
             secure:true,
         })
