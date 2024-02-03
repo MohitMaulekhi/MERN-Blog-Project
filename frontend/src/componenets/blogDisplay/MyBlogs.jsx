@@ -19,7 +19,7 @@ function MyBlogs() {
           blogCounter?.map((blog) => {
             return blog?(
             <Link to={`/blog/1/${blog._id}`} key={`${blog._id}`} className='flex flex-col border-2 border-black rounded-md p-4 bg-white h-[35vh]'>
-                <div className='h-[20vh] w-[20vh] max-w-[30vmin] bg-cover self-center bg-center' style={blog.blogImg ? { backgroundImage: `url(${blog.blogImg})` } : { backgroundImage: `url(https://res.cloudinary.com/mohitproject/image/upload/v1706437260/Assets/dfx6zvd7elnqlyaa4cxi.png)` }}></div>
+                <div className='h-[20vh] w-[20vh] max-w-full bg-cover self-center bg-center' style={blog.blogImg ? { backgroundImage: `url(${blog.blogImg})` } : { backgroundImage: `url(https://res.cloudinary.com/mohitproject/image/upload/v1706437260/Assets/dfx6zvd7elnqlyaa4cxi.png)` }}></div>
                 <b className='self-center font-serif'>{blog.title}</b>
                 <div className='text-opacity-80 text-gray-800 text-xs'>{blog.createdAt.slice(0,10)}</div>
                 <div className='overflow-hidden overflow-y-clip h-[7vh] py-1'>{parse(blog.content)}</div>
