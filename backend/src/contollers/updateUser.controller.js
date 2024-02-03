@@ -22,24 +22,48 @@ const changeCurrentPassword = asyncHandler(async (req, res) => {
 
 const updateAccountDetails = asyncHandler(async (req, res) => {
     const { fullName, email } = req.body
-    if (!fullName || !email) {
-        throw new ApiError(400, "All fields are required")
+    if (!fullName && !email) {
+        throw new ApiError(400, "At least one field is required")
     }
     const existedUser = await User.findOne({email})
 
     if (existedUser) {
         throw new ApiError(409, "User with email or username already exists")
     }
-
-    const user = await User.findByIdAndUpdate(req.user?._id, {
+    if(!fullName || !email){
+        const user = await User.findByIdAndUpdate(req.user?._id, {
         $set: {
             fullName,
             email
         }
     },
         { new: true }).select("-password")
-    return res.status(200)
+        return res.status(200)
         .json(new ApiResponse(200, user, "Account updated successfully"))
+    }
+    if(!fullName){
+        const user = await User.findByIdAndUpdate(req.user?._id, {
+        $set: {
+            email
+        }
+    },
+        { new: true }).select("-password")
+        return res.status(200)
+        .json(new ApiResponse(200, user, "Account updated successfully"))
+    }
+    if(!email){
+        const user = await User.findByIdAndUpdate(req.user?._id, {
+        $set: {
+            fullName,
+        }
+    },
+        { new: true }).select("-password")
+        return res.status(200)
+        .json(new ApiResponse(200, user, "Account updated successfully"))
+    }
+    else{
+        throw new ApiError(410, "Something went wrong")
+    }
 })
 
 const updateUserAvatar = asyncHandler(async (req, res) => {

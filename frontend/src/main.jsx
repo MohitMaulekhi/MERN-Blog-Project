@@ -11,12 +11,12 @@ import Blog from './Blog.jsx'
 import { UpdateAvatar, ChangePassword, DeleteAccount, UpdateDetails } from './componenets/index.js'
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://bestblog.onrender.com';
+axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL ;
 axios.defaults.withCredentials = true
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <>
+    <Route>
       <Route path='/' element={<App />} >
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/login' element={<LoginPage />} />
@@ -34,7 +34,7 @@ const router = createBrowserRouter(
         <Route path='/blog/update/:blogId'element = {<BlogUpdate/>} />
         <Route path='/blog/create' element={<BlogCreate />} />
 
-    </>
+    </Route>
   )
 )
 
