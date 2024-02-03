@@ -30,7 +30,7 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
     if (existedUser) {
         throw new ApiError(409, "User with email or username already exists")
     }
-    if(!fullName || !email){
+    else if(fullName && email){
         const user = await User.findByIdAndUpdate(req.user?._id, {
         $set: {
             fullName,
@@ -41,7 +41,7 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
         return res.status(200)
         .json(new ApiResponse(200, user, "Account updated successfully"))
     }
-    if(!fullName){
+    else if(!fullName){
         const user = await User.findByIdAndUpdate(req.user?._id, {
         $set: {
             email
@@ -51,7 +51,7 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
         return res.status(200)
         .json(new ApiResponse(200, user, "Account updated successfully"))
     }
-    if(!email){
+    else if(!email){
         const user = await User.findByIdAndUpdate(req.user?._id, {
         $set: {
             fullName,
