@@ -27,8 +27,8 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
     }
     const existedUser = await User.findOne({email})
 
-    if (existedUser) {
-        throw new ApiError(409, "User with email or username already exists")
+    if (email && existedUser && existedUser.email !== email) {
+        throw new ApiError(409, "User with email already exists")
     }
     else if(fullName && email){
         const user = await User.findByIdAndUpdate(req.user?._id, {
