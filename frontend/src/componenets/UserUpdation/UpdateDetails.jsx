@@ -58,6 +58,9 @@ function UpdateDetails() {
           else if(error.response.status == 500){
             toast.error("Error while updating User")
           }
+          else{
+            toast.error("Error while updating User")
+          }
         }
         else{
           toast.error("Something went Wrong")
