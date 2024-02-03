@@ -30,7 +30,7 @@ function UpdateDetails() {
     e.preventDefault()
     if (!fullName && !email) { toast.warn("Please fill at least one detail") }
 
-    else if (!ValidateEmail() && !(email.toLowerCase === email)) {
+    else if (email && !ValidateEmail() && !(email.toLowerCase === email)) {
       toast.warn("You have entered an invalid email address format!");
     }
 
