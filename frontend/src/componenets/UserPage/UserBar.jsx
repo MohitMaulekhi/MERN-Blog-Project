@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import { logOut } from "../../store/authSlice.js"
 function UserBar() {
     const navigate = useNavigate()
-    const dispatch = useDispatch(logout())
+    const dispatch = useDispatch()
     const handleLogOut = ()=>{
         axios.get('/api/v1/user/logout',{
           withCredentials:true,
@@ -14,7 +14,8 @@ function UserBar() {
         .then(()=>{
           toast.success("User logged out success fully")
           setTimeout(() => {
-            navigate("/")
+            dispatch(logOut())
+            navigate("/login")
           }, 1000);
           
         })
