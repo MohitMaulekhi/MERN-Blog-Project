@@ -13,8 +13,9 @@ function UserBar() {
         })
         .then(()=>{
           toast.success("User logged out success fully")
+          dispatch(logOut())
           setTimeout(() => {
-            dispatch(logOut())
+            
             navigate("/login")
           }, 1000);
           
