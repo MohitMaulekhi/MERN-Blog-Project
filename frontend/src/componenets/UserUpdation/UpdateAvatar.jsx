@@ -67,7 +67,7 @@ export default function UpdateAvatar() {
       <Container type={
         <div className="flex flex-col items-center justify-center"  >
             <div onClick={handleClick} className=' h-[25vh] w-[25vh] rounded-full bg-cover hover:opacity-50' style={image ? { backgroundImage: `url(${URL.createObjectURL(image)})` } : { backgroundImage: `url(${img})` }}></div>
-            <input type="image" ref={inputRef} onChange={handleChange} style={{ display: "none" }} accept="image/png, image/jpeg, image/jpg , image/webp" />
+            <input type="file" ref={inputRef} onChange={handleChange} style={{ display: "none" }} accept="image/png, image/jpeg, image/jpg , image/webp" />
             <div className="mt-[5vh]" onClick={handleAvatarChange} ><FunctionBTN type = " Update " color="black" txtColor="white" width = "15vw"   /></div>
         </div>
       }/>
