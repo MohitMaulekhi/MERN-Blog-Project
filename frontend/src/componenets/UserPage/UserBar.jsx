@@ -1,9 +1,11 @@
 import { FunctionBTN} from '../index.js'
 import {Link,useNavigate } from "react-router-dom"
+import {useDispatch} from 'react-redux'
 import axios from "axios"
 import { ToastContainer, toast } from 'react-toastify'
 function UserBar() {
     const navigate = useNavigate()
+    const dispatch = useDispatch(logout())
     const handleLogOut = ()=>{
         axios.get('/api/v1/user/logout',{
           withCredentials:true,
