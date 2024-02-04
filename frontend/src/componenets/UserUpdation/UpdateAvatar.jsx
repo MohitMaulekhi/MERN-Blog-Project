@@ -13,8 +13,8 @@ export default function UpdateAvatar() {
   const [img,setImg] = useState("https://res.cloudinary.com/mohitproject/image/upload/v1706437249/Assets/ig1r0citioyfixiqzfvq.png")
   let counter = (useSelector(state => state.authSlice.userData))
   useEffect(()=>{
-    if(counter.data.avatar){
-      setImg(counter.data.avatar)
+    if(counter?.data?.avatar){
+      setImg(counter?.data?.avatar)
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[counter])
