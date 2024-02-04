@@ -3,6 +3,7 @@ import {Link,useNavigate } from "react-router-dom"
 import {useDispatch} from 'react-redux'
 import axios from "axios"
 import { ToastContainer, toast } from 'react-toastify'
+import { logOut } from "../../store/authSlice.js"
 function UserBar() {
     const navigate = useNavigate()
     const dispatch = useDispatch(logout())
