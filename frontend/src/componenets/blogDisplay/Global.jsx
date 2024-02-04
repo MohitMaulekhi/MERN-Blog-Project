@@ -4,6 +4,7 @@ import { Link} from "react-router-dom";
 import axios from "axios"
 import parse from "html-react-parser"
 import LoadingBar from 'react-top-loading-bar'
+import DOMPurify from "dompurify"
 
 function Global() {
   const [page, setPage] = useState(0);
@@ -53,7 +54,7 @@ function Global() {
                 <div className='text-opacity-80 text-gray-800 text-xs mr-10'>{blog.createdAt.slice(0,10)}</div>
                 <div className='text-opacity-80 text-gray-800 float-right text-xs '>{blog.author}</div>
                 </div>
-                <div className='overflow-hidden overflow-y-clip h-[7vh] py-1'>{parse(blog.content)}</div>       
+                <div className='overflow-hidden overflow-y-clip h-[7vh] py-1'>{parse(DOMPurify.sanitize(blog.content))}</div>       
               </Link>
             
             ):(null)

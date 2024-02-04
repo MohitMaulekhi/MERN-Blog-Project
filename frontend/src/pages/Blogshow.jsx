@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import { useState, useEffect } from 'react';
 import parse from 'html-react-parser';
 import LoadingBar from 'react-top-loading-bar'
+import DOMPurify from "dompurify"
 
 function Blogshow() {
   const navigate = useNavigate()
@@ -78,7 +79,7 @@ function Blogshow() {
 
           
         </div>
-        <div>{parse(content)}</div>
+        <div>{parse(DOMPurify.sanitize(content))}</div>
         </>
 
       }</div>

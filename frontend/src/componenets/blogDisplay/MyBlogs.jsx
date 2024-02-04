@@ -3,8 +3,7 @@ import parse from 'html-react-parser';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { Link, NavLink } from "react-router-dom"
-
-
+import DOMPurify from "dompurify"
 
 
 
@@ -22,7 +21,7 @@ function MyBlogs() {
                 <div className='h-[20vh] w-[20vh] max-w-full bg-cover self-center bg-center' style={blog.blogImg ? { backgroundImage: `url(${blog.blogImg})` } : { backgroundImage: `url(https://res.cloudinary.com/mohitproject/image/upload/v1706437260/Assets/dfx6zvd7elnqlyaa4cxi.png)` }}></div>
                 <b className='self-center font-serif'>{blog.title}</b>
                 <div className='text-opacity-80 text-gray-800 text-xs'>{blog.createdAt.slice(0,10)}</div>
-                <div className='overflow-hidden overflow-y-clip h-[7vh] py-1'>{parse(blog.content)}</div>
+                <div className='overflow-hidden overflow-y-clip h-[7vh] py-1'>{parse(DOMPurify.sanitize(blog.content))}</div>
             </Link>
             ):(null)
           })
